@@ -7,3 +7,9 @@ link = Inmos.c011()
 
 # reset link
 link.reset()
+
+# send data to link
+while (1):
+	for i in range(255):
+		link.write_byte(i)
+
