@@ -30,7 +30,7 @@ class c011:
 		'RS0', 'RS1', 'RnotW', 'notCS'
 	]
 
-	def reset():
+	def reset(self):
 		"""Reset the C011 link adapter"""
 		
 		# assert reset
@@ -42,16 +42,16 @@ class c011:
 		# deassert reset
 		i2c.write_byte(self.ctrl_addr, 0x00)
 	
-	def write_byte(data):
+	def write_byte(self, data):
 		"""write data to the link"""
 		
 	
-	def read_byte():
+	def read_byte(self):
 		"""read a byte from link"""
 		
 		return data
 	
-	def link_ready():
+	def link_ready(self):
 		"""test if link is ready (i.e. output buffer empty)"""
 		
 		return status
