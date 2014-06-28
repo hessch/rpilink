@@ -43,13 +43,13 @@ class c011:
 		"""write data to the link"""
 		# setup regs for write
 		i2c.write_byte(self.ctrl_addr, 
-			1<<self.ctrl.index('RS0') & 
-			1<<self.ctrl.index('notCS') & 
+			1<<self.ctrl.index('RS0') | 
+			1<<self.ctrl.index('notCS') | 
 			1<<self.ctrl.index('LED0'))
 		# copy data to bus
 		i2c.write_byte(self.dbus_addr, data)
 		# assert notCS
-		i2c.write_byte(self.ctrl_addr, 1<<self.ctrl.index('RS0') & 
+		i2c.write_byte(self.ctrl_addr, 1<<self.ctrl.index('RS0') | 
 			1<<self.ctrl.index('LED0'))
 		# deassert notCS
 		i2c.write_byte(self.ctrl_addr, 1<<self.ctrl.index('notCS'))
