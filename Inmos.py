@@ -32,9 +32,15 @@ class c011:
 
 	def reset():
 		"""Reset the C011 link adapter"""
-	
+		
+		# assert reset
+		i2c.write_byte(self.ctrl_addr, 1<<self.ctrl.index('Reset'))
+		
 		# make databus high for input
 		i2c.write_byte(self.dbus_addr, 0xff)
+		
+		# deassert reset
+		i2c.write_byte(self.ctrl_addr, 0x00)
 	
 	def write_byte(data):
 		"""write data to the link"""
