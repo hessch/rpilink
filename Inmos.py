@@ -26,7 +26,8 @@ class c011:
 		
 	# ctrl maps c011 control signals to PCF8574 bits
 	ctrl = [
-		'RS0', 'RS1', 'RnotW'
+		'LED0', 'LinkSpeed', 'LED1', 'Reset', 
+		'RS0', 'RS1', 'RnotW', 'notCS'
 	]
 
 	def reset():
