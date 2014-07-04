@@ -60,10 +60,11 @@ class c011:
 		# setup regs for write, notCS still deasserted
 		i2c.write_byte(self.ctrl_addr, 1 << self.ctrl.index('RnotW') |
 			1 << self.ctrl.index('notCS'))
+		# setup databus for reading
+		i2c.write_byte(self.dbus_addr, 0xff)
 		# and assert notCS		
 		i2c.write_byte(self.ctrl_addr, 1 << self.ctrl.index('RnotW'))
-		# read data byte (must write 0xFF first)
-		i2c.write_byte(self.dbus_addr, 0xff)
+		# read data byte
 		data = i2c.read_byte(self.dbus_addr)
 		# let go of notCS
 		i2c.write_byte(self.ctrl_addr, 1 << self.ctrl.index('notCS'))
