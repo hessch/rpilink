@@ -11,5 +11,6 @@ link.reset()
 # send data to link
 while (1):
 	for i in range(255):
+		link.reset()
 		link.write_byte(i)
-
+		print "%02x\n" % link.read_byte()
