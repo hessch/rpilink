@@ -13,7 +13,6 @@ i2c = smbus.SMBus(0)
 class c011:
 	def __init__(self, dbus_addr=None, ctrl_addr=None):
 		"""create Inmos Link, optionally specifying i2c addresses"""
-		
 		if dbus_addr is None:
 			self.dbus_addr = DATABUS_I2C_ADDR
 		else:
@@ -33,26 +32,27 @@ class c011:
 	def reset(self):
 		"""Reset the C011 link adapter"""
 		# assert reset
-		i2c.write_byte(self.ctrl_addr, 1<<self.ctrl.index('Reset'))
+		i2c.write_byte(self.ctrl_addr, 1 << self.ctrl.index('Reset') |
+			1 << self.ctrl.index('LED1'))
 		# make databus high for input
 		i2c.write_byte(self.dbus_addr, 0xff)
 		# deassert reset, deassert notCS
-		i2c.write_byte(self.ctrl_addr, 1<<self.ctrl.index('notCS'))
+		i2c.write_byte(self.ctrl_addr, 1 << self.ctrl.index('notCS'))
 	
 	def write_byte(self, data):
 		"""write data to the link"""
 		# setup regs for write
 		i2c.write_byte(self.ctrl_addr, 
-			1<<self.ctrl.index('RS0') | 
-			1<<self.ctrl.index('notCS') | 
-			1<<self.ctrl.index('LED0'))
+			1 << self.ctrl.index('RS0')   | 
+			1 << self.ctrl.index('notCS') | 
+			1 << self.ctrl.index('LED0'))
 		# copy data to bus
 		i2c.write_byte(self.dbus_addr, data)
 		# assert notCS
-		i2c.write_byte(self.ctrl_addr, 1<<self.ctrl.index('RS0') | 
+		i2c.write_byte(self.ctrl_addr, 1 << self.ctrl.index('RS0') | 
 			1<<self.ctrl.index('LED0'))
 		# deassert notCS
-		i2c.write_byte(self.ctrl_addr, 1<<self.ctrl.index('notCS'))
+		i2c.write_byte(self.ctrl_addr, 1 << self.ctrl.index('notCS'))
 		
 	
 	def read_byte(self):
