@@ -82,13 +82,6 @@ class Interface:
 					1 << SIGNALS.index(args[0]))) 
 		sleep(1/(STROBE_uS * 1000000))
 
-	def set_led(self, state):
-		'''Set device Status LED state.
-		'''
-		self.gpio.write(MCP23017.OLATB, 
-			state << SIGNALS.index('Status'))
-					
-
 class Link:
 	'''Create Inmos link instance. 
 
@@ -132,14 +125,14 @@ class Link:
                         RnotW = True,
                         RS0 = False,
                         RS1 = True,
-                        LED0 = True)
+                        Status = True)
 
                 self.interface.set_signals(NotCS = False)
 
                 data = self.interface.read_data()
                 self.interface.set_signals(
                         NotCS = True,
-                        LED0 = False)
+                        Status = False)
                 return (data & 0x01 == 0x01)
 		
 
@@ -152,14 +145,14 @@ class Link:
                         RnotW = True,
                         RS0 = True,
                         RS1 = True,
-                        LED0 = True)
+                        Status = True)
 
                 self.interface.set_signals(NotCS = False)
 
                 data = self.interface.read_data()
                 self.interface.set_signals(
                         NotCS = True,
-                        LED0 = False)
+                        Status = False)
                 return (data & 0x01 == 0x01)
 
 	def enable_interrupts(self):
@@ -171,7 +164,7 @@ class Link:
 			RnotW = False,
 			RS0 = False, 
 			RS1 = True,
-			LED1 = True)
+			Status = True)
 		self.interface.write_data(0x02)
 		self.interface.strobe_signal('NotCS')
 
@@ -183,7 +176,7 @@ class Link:
 		self.interface.write_data(0x02)
 		self.interface.strobe_signal('NotCS')
 
-		self.interface.set_signals(LED1 = False)
+		self.interface.set_signals(Status = False)
 
 	def disable_interrupts(self):
 		'''Disable the InputInt and OutputInt lines.
@@ -194,7 +187,7 @@ class Link:
 			RnotW = False,
 			RS0 = False, 
 			RS1 = True,
-			LED1 = True)
+			Status = True)
 		self.interface.write_data(0x00)
 		self.interface.strobe_signal('NotCS')
 
@@ -206,7 +199,7 @@ class Link:
 		self.interface.write_data(0x00)
 		self.interface.strobe_signal('NotCS')
 
-		self.interface.set_signals(LED1 = False)
+		self.interface.set_signals(Status = False)
 
 	def write(self, data):
 		'''Write a byte of data to the link.
@@ -216,10 +209,10 @@ class Link:
 			RnotW = False,
 			RS0 = True, 
 			RS1 = False,
-			LED1 = True)
+			Status = True)
 		self.interface.write_data(data)
 		self.interface.strobe_signal('NotCS')
-		self.interface.set_signals(LED1 = False)
+		self.interface.set_signals(Status = False)
 
 	def read(self):
 		'''Read a byte of data from the link.
@@ -229,7 +222,7 @@ class Link:
 			RnotW = True,
 			RS0 = False,
 			RS1 = False,
-			LED0 = True)
+			Status = True)
 
 		# Separate to make sure register selects are stable
 		# before asserting ~CS. (Should check if this is 
@@ -239,7 +232,7 @@ class Link:
 		data = self.interface.read_data()
 		self.interface.set_signals(
 			NotCS = True, 
-			LED0 = False)
+			Status = False)
 		return data
 
 	def reset(self, *args):
