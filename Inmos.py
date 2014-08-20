@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import smbus
+from time import sleep
 
 # data bus PCF8574 address
 DATABUS_I2C_ADDR = 0x20
@@ -33,15 +34,21 @@ class c011:
 
 	def reset(self):
 		"""Reset the C011 link adapter"""
+
 		# assert reset
 		i2c.write_byte(self.ctrl_addr, 
 			1 << self.ctrl.index('Reset') |
+			1 << self.ctrl.index('notCS') |
 			1 << self.ctrl.index('LED1'))
+
 		# make databus high for input
 		i2c.write_byte(self.dbus_addr, 0xff)
+
 		# deassert reset, deassert notCS
 		i2c.write_byte(self.ctrl_addr, 
 			1 << self.ctrl.index('notCS'))
+		
+		sleep(.001)
 	
 	def write_byte(self, data):
 		"""write data to the link"""
@@ -70,14 +77,16 @@ class c011:
 		# setup regs for read, notCS still deasserted
 		i2c.write_byte(self.ctrl_addr, 
 			1 << self.ctrl.index('RnotW') |
-			1 << self.ctrl.index('notCS'))
+			1 << self.ctrl.index('notCS') |
+			1 << self.ctrl.index('LED1'))
 
 		# setup databus for reading
 		i2c.write_byte(self.dbus_addr, 0xff)
 
 		# assert notCS		
 		i2c.write_byte(self.ctrl_addr, 
-			1 << self.ctrl.index('RnotW'))
+			1 << self.ctrl.index('RnotW') |
+			1 << self.ctrl.index('LED1'))
 
 		# read data byte
 		data = i2c.read_byte(self.dbus_addr)
@@ -99,6 +108,7 @@ class c011:
 			1 << self.ctrl.index('RnotW') |
 			1 << self.ctrl.index('RS0')   |
 			1 << self.ctrl.index('RS1')   |
+			1 << self.ctrl.index('LED1')  |
 			1 << self.ctrl.index('notCS'))
 
 		# setup databus for reading
@@ -106,7 +116,8 @@ class c011:
 		
 		# assert notCS
 		i2c.write_byte(self.ctrl_addr,
-			1 << self.ctrl.index('RnotW') |
+			1 << self.ctrl.index('RnotW')  |
+			1 << self.ctrl.index('LED1')  |
 			1 << self.ctrl.index('RS0')   |
 			1 << self.ctrl.index('RS1'))
 
@@ -127,6 +138,7 @@ class c011:
 		# setup regs for write, notCS still deasserted
 		i2c.write_byte(self.ctrl_addr,
 			1 << self.ctrl.index('RnotW') |
+			1 << self.ctrl.index('LED1') |
 			1 << self.ctrl.index('RS1')   |
 			1 << self.ctrl.index('notCS'))
 
@@ -136,6 +148,7 @@ class c011:
 		# assert notCS
 		i2c.write_byte(self.ctrl_addr,
 			1 << self.ctrl.index('RnotW') |
+			1 << self.ctrl.index('LED1') |
 			1 << self.ctrl.index('RS1'))
 
 		# read status register, mask data present  bit

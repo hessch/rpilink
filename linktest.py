@@ -14,10 +14,8 @@ link.reset()
 
 # send data to link
 while (1):
-	for i in range(255):
-		# link.reset()
+	for i in range(0xff):
 		link.write_byte(i)
-
 
 		print ', '.join([
 			'write: %02x' % i,
@@ -25,3 +23,4 @@ while (1):
 			'ostat: %d' % link.link_ready(),
 			'istat: %d' % link.data_present()
 		])
+	link.reset()
