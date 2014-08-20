@@ -40,11 +40,11 @@ class c011:
 			'signal' expects a string type signal name
 		"""
 		if value:
-			bus |= (1 << ctrl.index[signal])
+			self.ctrl_word |= (1 << self.ctrl.index(signal))
 		else:
-			bus &= ~(1 << ctrl.index[signal])
+			self.ctrl_word &= ~(1 << self.ctrl.index(signal))
 
-		 i2c.write_byte(self.ctrl_addr, self.ctrl_word)
+		i2c.write_byte(self.ctrl_addr, self.ctrl_word)
 			
 	def reset(self):
 		"""Reset the C011 link adapter"""
