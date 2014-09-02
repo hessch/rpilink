@@ -102,13 +102,13 @@ class c011:
 			1 << self.ctrl.index('RnotW') |
 			1 << self.ctrl.index('LED1'))
 
-		# read data byte
-		data = i2c.read_byte(self.dbus_addr)
 
 		# let go of notCS
 		i2c.write_byte(self.ctrl_addr, 
 			1 << self.ctrl.index('notCS'))
 
+		# read data byte
+		data = i2c.read_byte(self.dbus_addr)
 		# and return byte
 		return data
 	
@@ -165,12 +165,11 @@ class c011:
 			1 << self.ctrl.index('LED1') |
 			1 << self.ctrl.index('RS1'))
 
-		# read status register, mask data present  bit
-		status = i2c.read_byte(self.dbus_addr) & 0x01
-	
 		# let go of notCS
 		i2c.write_byte(self.ctrl_addr,
 			1 << self.ctrl.index('notCS'))
 		
+		# read status register, mask data present  bit
+		status = i2c.read_byte(self.dbus_addr) & 0x01
 		return status
 
