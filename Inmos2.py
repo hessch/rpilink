@@ -13,7 +13,7 @@ SIGNALS = (
         'NotCS', 'LinkSpeed', 'Reset',
         'LED0', 'LED1' )
 
-STROBE_uS = 1   # Number of microseconds to hold strobed signal.
+STROBE_uS = 5   # Number of microseconds to hold strobed signal.
 
 class Interface:
 	def __init__(self, i2c_bus_addr=None):
