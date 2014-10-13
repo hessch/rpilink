@@ -5,6 +5,7 @@
 """
 
 import Inmos2
+from time import sleep
 
 # create link instance on default addresses
 link = Inmos2.Link()
@@ -18,3 +19,4 @@ while (1):
 			'write: %02x' % i,
 			'read: %02x' % link.read(),
 		])
+		sleep(0.025)
