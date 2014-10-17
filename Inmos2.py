@@ -165,6 +165,7 @@ class Link:
                         LED0 = False)
                 return (data & 0x01 == 0x01)
 
+	# TODO: combine enable- and disable_interrupts in one function?
 	def enable_interrupts(self):
 		'''Enable the InputInt and OutputInt lines.
 		'''
@@ -183,6 +184,28 @@ class Link:
 			RS0 = True, 
 			RS1 = True)
 		self.interface.write_data(0x02)
+		self.interface.strobe_signal('NotCS')
+
+		self.interface.set_signals(LED1 = False)
+
+	def disable_interrupts(self):
+		'''Disable the InputInt and OutputInt lines.
+		'''
+		# Enable InputInt (write to ISR)
+		self.interface.set_signals(
+			RnotW = False,
+			RS0 = False, 
+			RS1 = True,
+			LED1 = True)
+		self.interface.write_data(0x00)
+		self.interface.strobe_signal('NotCS')
+
+		# Enable OutputInt (write to OSR)
+		self.interface.set_signals(
+			RnotW = False,
+			RS0 = True, 
+			RS1 = True)
+		self.interface.write_data(0x00)
 		self.interface.strobe_signal('NotCS')
 
 		self.interface.set_signals(LED1 = False)
