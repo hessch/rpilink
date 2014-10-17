@@ -13,12 +13,22 @@ SIGNALS = (
         'NotCS', 'LinkSpeed', 'Reset',
         'LED0', 'LED1' )
 
-STROBE_uS = 5   # Number of microseconds to hold strobed signal.
+STROBE_uS = 1   # Number of microseconds to hold strobed signal. 
+		# Inmos datasheet states TCSLCSH as 60 ns, 1 us 
+		# should be more than adequate.
+
 
 class Interface:
+	'''Link interface adapter class, glues Inmos link adapter to
+	i2c bus and abstracts its signals.
+	With default i2c addresses, one should not need to deal with
+	this class.
+	'''
 	def __init__(self, i2c_bus_addr=None):
 		'''Create Inmos Link, optionally specifying i2c addresses
 		of the MCP23017.
+
+		Todo: this should allow for overriding the SIGNALS tuple.
 		'''
 		if i2c_bus_addr is None:
 			self.i2c_bus_addr = MCP23017.DEVICE_ADDRESS
@@ -28,22 +38,22 @@ class Interface:
 		self.gpio = MCP23017.gpio(self.i2c_bus_addr)
 		
 		# initally tri-state databus to input
-		self.gpio.write(MCP23017.IODIRA, 0xff)
+		self.gpio.write(MCP23017.IODIRA, MCP23017.INPUT)
 
 		# Control pins are all output
-		self.gpio.write(MCP23017.IODIRB, 0x00)
+		self.gpio.write(MCP23017.IODIRB, MCP23017.OUTPUT)
 		self.gpio.write(MCP23017.OLATB, 0x00)
 		
 	def read_data(self):
 		'''Read data from link adapter.
 		'''
-		self.gpio.write(MCP23017.IODIRA, 0xff)
+		self.gpio.write(MCP23017.IODIRA, MCP23017.INPUT)
 		return self.gpio.read(MCP23017.GPIOA)
 
 	def write_data(self, data):
 		'''Latch a byte of data on the databus.
 		'''
-		self.gpio.write(MCP23017.IODIRA, 0x00)
+		self.gpio.write(MCP23017.IODIRA, MCP23017.OUTPUT)
 		self.gpio.write(MCP23017.OLATA, data)
 
 	def set_signals(self, *args, **kwargs):

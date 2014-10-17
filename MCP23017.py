@@ -19,6 +19,9 @@ OLATB  = 0x15 # Port B output latch register
 GPIOA  = 0x12 # Port A GPIO register
 GPIOB  = 0x13 # Port B GPIO register
 
+INPUT  = 0xff # shorthand for all pins as input
+OUTPUT = 0xff # shorthand for all pins as output
+
 
 class gpio:
 	def __init__(self, device_address = DEVICE_ADDRESS):
