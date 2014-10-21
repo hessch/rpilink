@@ -167,6 +167,7 @@ class Link:
 
 	def enable_interrupts(self):
 		'''Enable the InputInt and OutputInt lines.
+		N.B. enable_interrupts() clears the link ISR and OSR registers.
 		'''
 		# Enable InputInt (write to ISR)
 		self.interface.set_signals(
