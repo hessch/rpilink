@@ -5,21 +5,17 @@
 """
 
 import Inmos
-from time import sleep
 
 # create link instance on default addresses
 link = Inmos.Link()
 
 # send data to link
 inb = 0x00
-while (1):
-	for i in range(0xff):
-		if link.data_present():
-			inb = link.read()
-		link.write(i)
+while True:
+	if link.data_present():
+		inb = link.read()
+		while True:
+			if link.output_ready():
+				break
+		link.write(inb)
 
-		print ', '.join([
-			'write: %02x' % i,
-			'read: %02x' % inb,
-		])
-		sleep(0.025)
