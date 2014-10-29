@@ -8,7 +8,7 @@ import Inmos
 from time import sleep
 
 # create link instance on default addresses
-link = Inmos2.Link()
+link = Inmos.Link()
 
 # send data to link
 while (1):
