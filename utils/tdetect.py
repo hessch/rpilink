@@ -45,7 +45,7 @@ print; print
 
 # wait for result
 retries = 16 
-while link.is_data_present() is False and retries > 0:
+while link.data_present() is False and retries > 0:
 	time.sleep(0.01)
 	retries -= 1
 if retries <= 0:
@@ -57,7 +57,7 @@ if retries <= 0:
 # read result
 print "Read result from Transputer:"
 i = 0
-while link.is_data_present():
+while link.data_present():
 	if i % 16 == 0:
 		sys.stdout.write("\n\t")
 	sys.stdout.write(('%02x ' % link.read()).zfill(2))
