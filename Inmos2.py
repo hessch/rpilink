@@ -127,7 +127,7 @@ class Link:
 		# initialization done, deassert Reset
 		self.interface.set_signals(Reset = False)
 
-	def is_data_present(self):
+	def data_present(self):
 		'''Read input status register of link adapter for 
 		data present, returns True if data is present.
 		'''
@@ -146,7 +146,7 @@ class Link:
                 return (data & 0x01 == 0x01)
 		
 
-	def is_output_ready(self):
+	def output_ready(self):
 		'''Read output status register of the link adapter
 		to determine if the link is ready. Returns True for
 		a ready link.
