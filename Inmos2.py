@@ -11,7 +11,7 @@ from time import sleep
 SIGNALS = (
         'RnotW', 'RS0', 'RS1',
         'NotCS', 'LinkSpeed', 'Reset',
-        'LED0', 'LED1' )
+        'Status', 'LinkReset' )
 
 STROBE_uS = 1   # Number of microseconds to hold strobed signal. 
 		# Inmos datasheet states TCSLCSH as 60 ns, 1 us 
@@ -82,14 +82,11 @@ class Interface:
 					1 << SIGNALS.index(args[0]))) 
 		sleep(1/(STROBE_uS * 1000000))
 
-	def set_leds(self, state):
-		'''Set device LEDs to binary state.
+	def set_led(self, state):
+		'''Set device Status LED state.
 		'''
-		if state > 3:
-			state = 3
-		if state < 0:
-			state = 0
-		self.gpio.write(MCP23017.OLATB, state << 6)
+		self.gpio.write(MCP23017.OLATB, 
+			state << SIGNALS.index('Status'))
 					
 
 class Link:
@@ -244,3 +241,15 @@ class Link:
 			NotCS = True, 
 			LED0 = False)
 		return data
+
+	def reset(self, *args):
+		'''Strobe LinkReset, this resets a device connected
+		to the link adapter.
+		When an optional state is given, the LinkReset line
+		will latch to that state.
+		'''
+		
+		if len(args) == 0:
+			self.interface.strobe_signal('LinkReset')
+		else:
+			self.interface.set_signals(LinkReset = args[0])
