@@ -10,9 +10,9 @@
 #             with the new Inmos2 module
 
 import sys, time
-import Inmos2
+import Inmos
 
-link = Inmos2.Link(link_speed = 10)
+link = Inmos.Link(link_speed = 10)
 link.enable_interrupts()
 
 # write identification code to link

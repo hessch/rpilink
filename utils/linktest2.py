@@ -4,7 +4,7 @@
 	Hessel Schut, hessel@isquared.nl, 2014-08-19
 """
 
-import Inmos2
+import Inmos
 from time import sleep
 
 # create link instance on default addresses
