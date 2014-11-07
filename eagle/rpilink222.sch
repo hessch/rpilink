@@ -61,6 +61,8 @@
 <layer number="250" name="Descript" color="3" fill="1" visible="yes" active="yes"/>
 </layers>
 <schematic xreflabel="%F%N/%S.%C%R" xrefpart="/%S.%C%R">
+<description>Raspberry Pi Link Adaptor v2.22, 
+Copyright (C) 2014 Hessel Schut</description>
 <libraries>
 <library name="raspberrypi_bastelstube_v13">
 <description>&lt;b&gt;Raspberry Pi&lt;/b&gt; by &lt;b&gt;Martin's Bastelstube&lt;/b&gt;
@@ -18847,6 +18849,25 @@ Source: MAX3465-MAX3469.pdf</description>
 <plain>
 <text x="7.62" y="12.7" size="1.778" layer="91">i2c address
 selection</text>
+<wire x1="269.24" y1="157.48" x2="297.18" y2="157.48" width="0.1524" layer="95"/>
+<wire x1="297.18" y1="157.48" x2="335.28" y2="157.48" width="0.1524" layer="95"/>
+<wire x1="335.28" y1="157.48" x2="335.28" y2="149.86" width="0.1524" layer="95"/>
+<wire x1="335.28" y1="149.86" x2="335.28" y2="144.78" width="0.1524" layer="95"/>
+<wire x1="335.28" y1="144.78" x2="335.28" y2="134.62" width="0.1524" layer="95"/>
+<wire x1="335.28" y1="134.62" x2="269.24" y2="134.62" width="0.1524" layer="95"/>
+<wire x1="269.24" y1="134.62" x2="269.24" y2="144.78" width="0.1524" layer="95"/>
+<text x="271.78" y="152.4" size="1.778" layer="95">RPi Link Adaptor</text>
+<text x="299.72" y="152.4" size="1.778" layer="95">v.2.22</text>
+<wire x1="269.24" y1="144.78" x2="269.24" y2="149.86" width="0.1524" layer="95"/>
+<wire x1="269.24" y1="149.86" x2="269.24" y2="157.48" width="0.1524" layer="95"/>
+<wire x1="269.24" y1="149.86" x2="297.18" y2="149.86" width="0.1524" layer="95"/>
+<text x="271.78" y="147.32" size="1.778" layer="95">Copyright (C) 2014 Hessel Schut</text>
+<wire x1="297.18" y1="149.86" x2="335.28" y2="149.86" width="0.1524" layer="95"/>
+<wire x1="269.24" y1="144.78" x2="335.28" y2="144.78" width="0.1524" layer="95"/>
+<wire x1="297.18" y1="152.4" x2="297.18" y2="157.48" width="0.1524" layer="95"/>
+<wire x1="297.18" y1="157.48" x2="297.18" y2="149.86" width="0.1524" layer="95"/>
+<text x="271.78" y="137.16" size="1.778" layer="95">This project is licensed under the 
+CERN Open Hardware Licence v1.2.</text>
 </plain>
 <instances>
 <instance part="X1" gate="G$1" x="48.26" y="111.76"/>
