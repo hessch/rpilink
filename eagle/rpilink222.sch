@@ -18756,61 +18756,61 @@ Source: MAX3465-MAX3469.pdf</description>
 <part name="X1" library="raspberrypi_bastelstube_v13" deviceset="RASPI_BOARD_AB" device="_E2P"/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
 <part name="IC1" library="Transputers" deviceset="IMS-C011M2" device="E" technology="S20"/>
-<part name="C1" library="rcl" deviceset="C-EU" device="C0805"/>
+<part name="C1" library="rcl" deviceset="C-EU" device="C0805" value="100n"/>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
-<part name="C2" library="rcl" deviceset="C-EU" device="C0805"/>
+<part name="C2" library="rcl" deviceset="C-EU" device="C0805" value="100n"/>
 <part name="IC2" library="microchip" deviceset="MCP23017" device="SO"/>
-<part name="R1" library="rcl" deviceset="R-EU_" device="R0603"/>
-<part name="C3" library="rcl" deviceset="C-EU" device="C0805"/>
+<part name="R1" library="rcl" deviceset="R-EU_" device="R0603" value="1k"/>
+<part name="C3" library="rcl" deviceset="C-EU" device="C0805" value="100n"/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
 <part name="GND4" library="supply1" deviceset="GND" device=""/>
 <part name="S1" library="smd-special" deviceset="SWS003" device=""/>
-<part name="R2" library="rcl" deviceset="R-EU_" device="R0603"/>
-<part name="R3" library="rcl" deviceset="R-EU_" device="R0603"/>
-<part name="R4" library="rcl" deviceset="R-EU_" device="R0603"/>
-<part name="R5" library="rcl" deviceset="R-EU_" device="R0603"/>
+<part name="R2" library="rcl" deviceset="R-EU_" device="R0603" value="1k"/>
+<part name="R3" library="rcl" deviceset="R-EU_" device="R0603" value="1k"/>
+<part name="R4" library="rcl" deviceset="R-EU_" device="R0603" value="1k"/>
+<part name="R5" library="rcl" deviceset="R-EU_" device="R0603" value="1k"/>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
 <part name="GND6" library="supply1" deviceset="GND" device=""/>
 <part name="T1" library="transistor" deviceset="*-NPN-" device="SOT23-BEC" technology="BC808"/>
 <part name="T2" library="transistor" deviceset="*-NPN-" device="SOT23-BEC" technology="BC808"/>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
-<part name="R6" library="rcl" deviceset="R-EU_" device="R0603"/>
-<part name="C4" library="rcl" deviceset="CPOL-EU" device="C/6032-28R"/>
+<part name="R6" library="rcl" deviceset="R-EU_" device="R0603" value="1k"/>
+<part name="C4" library="rcl" deviceset="CPOL-EU" device="C/6032-28R" value="10µ/16v"/>
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
 <part name="IC3" library="crystal" deviceset="SM77H" device=""/>
-<part name="C5" library="rcl" deviceset="C-EU" device="C0805"/>
+<part name="C5" library="rcl" deviceset="C-EU" device="C0805" value="1µ"/>
 <part name="GND9" library="supply1" deviceset="GND" device=""/>
 <part name="DS1" library="led" deviceset="LED" device="CHIP-LED0603"/>
 <part name="DS2" library="led" deviceset="LED" device="CHIP-LED0603"/>
 <part name="DS3" library="led" deviceset="LED" device="CHIP-LED0603"/>
-<part name="R7" library="rcl" deviceset="R-EU_" device="R0603"/>
-<part name="R8" library="rcl" deviceset="R-EU_" device="R0603"/>
-<part name="R9" library="rcl" deviceset="R-EU_" device="R0603"/>
+<part name="R7" library="rcl" deviceset="R-EU_" device="R0603" value="6k8"/>
+<part name="R8" library="rcl" deviceset="R-EU_" device="R0603" value="6k8"/>
+<part name="R9" library="rcl" deviceset="R-EU_" device="R0603" value="6k8"/>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="GND11" library="supply1" deviceset="GND" device=""/>
 <part name="GND12" library="supply1" deviceset="GND" device=""/>
 <part name="DS4" library="led" deviceset="LED" device="CHIP-LED0603"/>
 <part name="DS5" library="led" deviceset="LED" device="CHIP-LED0603"/>
 <part name="DS6" library="led" deviceset="LED" device="CHIP-LED0603"/>
-<part name="R10" library="rcl" deviceset="R-EU_" device="R0603"/>
-<part name="R11" library="rcl" deviceset="R-EU_" device="R0603"/>
-<part name="R12" library="rcl" deviceset="R-EU_" device="R0603"/>
+<part name="R10" library="rcl" deviceset="R-EU_" device="R0603" value="6k8"/>
+<part name="R11" library="rcl" deviceset="R-EU_" device="R0603" value="6k8"/>
+<part name="R12" library="rcl" deviceset="R-EU_" device="R0603" value="5k6"/>
 <part name="GND13" library="supply1" deviceset="GND" device=""/>
 <part name="GND14" library="supply1" deviceset="GND" device=""/>
 <part name="GND15" library="supply1" deviceset="GND" device=""/>
 <part name="IC4" library="74xx-eu" deviceset="74*244" device="DW" technology="AC" value="'244"/>
 <part name="GND16" library="supply1" deviceset="GND" device=""/>
-<part name="C6" library="rcl" deviceset="C-EU" device="C0805"/>
+<part name="C6" library="rcl" deviceset="C-EU" device="C0805" value="100n"/>
 <part name="GND17" library="supply1" deviceset="GND" device=""/>
 <part name="DS7" library="led" deviceset="LED" device="CHIP-LED0603"/>
 <part name="DS8" library="led" deviceset="LED" device="CHIP-LED0603"/>
-<part name="R13" library="rcl" deviceset="R-EU_" device="R0603"/>
-<part name="R14" library="rcl" deviceset="R-EU_" device="R0603"/>
+<part name="R13" library="rcl" deviceset="R-EU_" device="R0603" value="120R"/>
+<part name="R14" library="rcl" deviceset="R-EU_" device="R0603" value="120R"/>
 <part name="GND18" library="supply1" deviceset="GND" device=""/>
 <part name="GND19" library="supply1" deviceset="GND" device=""/>
 <part name="GND20" library="supply1" deviceset="GND" device=""/>
 <part name="DS9" library="led" deviceset="LED" device="CHIP-LED0603"/>
-<part name="R15" library="rcl" deviceset="R-EU_" device="R0603"/>
+<part name="R15" library="rcl" deviceset="R-EU_" device="R0603" value="6k8"/>
 <part name="GND21" library="supply1" deviceset="GND" device=""/>
 <part name="IN" library="testpad" deviceset="TPSQ" device="TP20SQ"/>
 <part name="OUT" library="testpad" deviceset="TPSQ" device="TP20SQ"/>
@@ -18827,9 +18827,9 @@ Source: MAX3465-MAX3469.pdf</description>
 <part name="GND23" library="supply1" deviceset="GND" device=""/>
 <part name="GND24" library="supply1" deviceset="GND" device=""/>
 <part name="GND25" library="supply1" deviceset="GND" device=""/>
-<part name="C7" library="rcl" deviceset="C-EU" device="C0805"/>
-<part name="C8" library="rcl" deviceset="C-EU" device="C0805"/>
-<part name="C9" library="rcl" deviceset="C-EU" device="C0805"/>
+<part name="C7" library="rcl" deviceset="C-EU" device="C0805" value="100n"/>
+<part name="C8" library="rcl" deviceset="C-EU" device="C0805" value="100n"/>
+<part name="C9" library="rcl" deviceset="C-EU" device="C0805" value="100n"/>
 <part name="GND26" library="supply1" deviceset="GND" device=""/>
 <part name="GND27" library="supply1" deviceset="GND" device=""/>
 <part name="GND28" library="supply1" deviceset="GND" device=""/>
@@ -18843,6 +18843,10 @@ Source: MAX3465-MAX3469.pdf</description>
 <part name="RST-" library="testpad" deviceset="TPSQ" device="TP20SQ"/>
 <part name="TGND" library="testpad" deviceset="TPSQ" device="TP20SQ"/>
 <part name="GND29" library="supply1" deviceset="GND" device=""/>
+<part name="R16" library="rcl" deviceset="R-EU_" device="R0603" value="120R"/>
+<part name="R17" library="rcl" deviceset="R-EU_" device="R0603" value="1k"/>
+<part name="R18" library="rcl" deviceset="R-EU_" device="R0603" value="1k"/>
+<part name="GND30" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -18879,13 +18883,25 @@ CERN Open Hardware Licence v1.2.</text>
 <instance part="C2" gate="G$1" x="203.2" y="147.32"/>
 <instance part="IC2" gate="G$1" x="58.42" y="38.1"/>
 <instance part="R1" gate="G$1" x="38.1" y="58.42" rot="R90"/>
-<instance part="C3" gate="G$1" x="30.48" y="58.42"/>
+<instance part="C3" gate="G$1" x="30.48" y="58.42" smashed="yes">
+<attribute name="NAME" x="32.004" y="58.801" size="1.778" layer="95"/>
+<attribute name="VALUE" x="27.559" y="49.784" size="1.778" layer="96" rot="R90"/>
+</instance>
 <instance part="GND3" gate="1" x="30.48" y="48.26"/>
 <instance part="GND4" gate="1" x="43.18" y="5.08"/>
 <instance part="S1" gate="G$1" x="20.32" y="25.4" rot="R270"/>
-<instance part="R2" gate="G$1" x="30.48" y="15.24" rot="R90"/>
-<instance part="R3" gate="G$1" x="35.56" y="15.24" rot="R90"/>
-<instance part="R4" gate="G$1" x="40.64" y="15.24" rot="R90"/>
+<instance part="R2" gate="G$1" x="30.48" y="15.24" smashed="yes" rot="R90">
+<attribute name="NAME" x="28.9814" y="11.43" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="33.782" y="16.51" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="R3" gate="G$1" x="35.56" y="15.24" smashed="yes" rot="R90">
+<attribute name="NAME" x="34.0614" y="11.43" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="38.862" y="16.51" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="R4" gate="G$1" x="40.64" y="15.24" smashed="yes" rot="R90">
+<attribute name="NAME" x="39.1414" y="11.43" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="43.942" y="16.51" size="1.778" layer="96" rot="R90"/>
+</instance>
 <instance part="R5" gate="G$1" x="154.94" y="144.78" rot="R90"/>
 <instance part="GND5" gate="1" x="147.32" y="127"/>
 <instance part="GND6" gate="1" x="170.18" y="66.04"/>
@@ -18953,22 +18969,35 @@ CERN Open Hardware Licence v1.2.</text>
 <instance part="GND23" gate="1" x="302.26" y="2.54"/>
 <instance part="GND24" gate="1" x="302.26" y="40.64"/>
 <instance part="GND25" gate="1" x="302.26" y="78.74"/>
-<instance part="C7" gate="G$1" x="307.34" y="109.22" rot="R90"/>
-<instance part="C8" gate="G$1" x="307.34" y="71.12" rot="R90"/>
-<instance part="C9" gate="G$1" x="307.34" y="33.02" rot="R90"/>
+<instance part="C7" gate="G$1" x="307.34" y="109.22" smashed="yes" rot="R90">
+<attribute name="NAME" x="306.959" y="110.744" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="311.404" y="109.601" size="1.778" layer="96"/>
+</instance>
+<instance part="C8" gate="G$1" x="307.34" y="71.12" smashed="yes" rot="R90">
+<attribute name="NAME" x="306.959" y="72.644" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="311.404" y="71.501" size="1.778" layer="96"/>
+</instance>
+<instance part="C9" gate="G$1" x="307.34" y="33.02" smashed="yes" rot="R90">
+<attribute name="NAME" x="306.959" y="34.544" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="311.404" y="33.401" size="1.778" layer="96"/>
+</instance>
 <instance part="GND26" gate="1" x="314.96" y="106.68"/>
 <instance part="GND27" gate="1" x="317.5" y="68.58"/>
 <instance part="GND28" gate="1" x="317.5" y="30.48"/>
-<instance part="OUT+" gate="G$1" x="337.82" y="104.14" rot="R90"/>
-<instance part="OUT-" gate="G$1" x="337.82" y="99.06" rot="R90"/>
-<instance part="IN+" gate="G$1" x="337.82" y="91.44" rot="R90"/>
-<instance part="IN-" gate="G$1" x="337.82" y="86.36" rot="R90"/>
-<instance part="CLK+" gate="G$1" x="337.82" y="66.04" rot="R90"/>
-<instance part="CLK-" gate="G$1" x="337.82" y="60.96" rot="R90"/>
+<instance part="OUT+" gate="G$1" x="337.82" y="109.22" rot="R90"/>
+<instance part="OUT-" gate="G$1" x="337.82" y="104.14" rot="R90"/>
+<instance part="IN+" gate="G$1" x="337.82" y="90.17" rot="R90"/>
+<instance part="IN-" gate="G$1" x="337.82" y="80.01" rot="R90"/>
+<instance part="CLK+" gate="G$1" x="337.82" y="60.96" rot="R90"/>
+<instance part="CLK-" gate="G$1" x="337.82" y="55.88" rot="R90"/>
 <instance part="RST+" gate="G$1" x="337.82" y="27.94" rot="R90"/>
 <instance part="RST-" gate="G$1" x="337.82" y="22.86" rot="R90"/>
 <instance part="TGND" gate="G$1" x="337.82" y="15.24" rot="R90"/>
 <instance part="GND29" gate="1" x="332.74" y="10.16"/>
+<instance part="R16" gate="G$1" x="335.026" y="85.09" rot="R90"/>
+<instance part="R17" gate="G$1" x="335.026" y="95.25" rot="R90"/>
+<instance part="R18" gate="G$1" x="335.026" y="74.93" rot="R270"/>
+<instance part="GND30" gate="1" x="335.026" y="65.786"/>
 </instances>
 <busses>
 <bus name="DATA[0..7]">
@@ -19229,6 +19258,12 @@ CERN Open Hardware Licence v1.2.</text>
 <pinref part="GND29" gate="1" pin="GND"/>
 <wire x1="332.74" y1="15.24" x2="332.74" y2="12.7" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="R18" gate="G$1" pin="2"/>
+<wire x1="335.026" y1="69.85" x2="335.026" y2="68.326" width="0.1524" layer="91"/>
+<pinref part="GND30" gate="1" pin="GND"/>
+<wire x1="335.026" y1="68.326" x2="335.026" y2="68.072" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="CLK5" class="0">
 <segment>
@@ -19378,6 +19413,12 @@ CERN Open Hardware Licence v1.2.</text>
 <label x="307.34" y="38.1" size="1.778" layer="95" xref="yes"/>
 <pinref part="C9" gate="G$1" pin="1"/>
 <junction x="304.8" y="33.02"/>
+</segment>
+<segment>
+<pinref part="R17" gate="G$1" pin="2"/>
+<wire x1="335.026" y1="100.33" x2="335.026" y2="101.346" width="0.1524" layer="91"/>
+<wire x1="335.026" y1="101.346" x2="323.85" y2="101.346" width="0.1524" layer="91"/>
+<label x="323.596" y="101.346" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="N$1" class="0">
@@ -19897,8 +19938,8 @@ CERN Open Hardware Licence v1.2.</text>
 </segment>
 <segment>
 <pinref part="CLK+" gate="G$1" pin="TP"/>
-<wire x1="335.28" y1="66.04" x2="332.74" y2="66.04" width="0.1524" layer="91"/>
-<label x="332.74" y="66.04" size="1.778" layer="95" rot="R180" xref="yes"/>
+<wire x1="335.28" y1="60.96" x2="332.74" y2="60.96" width="0.1524" layer="91"/>
+<label x="332.74" y="60.96" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="CLOCK-" class="0">
@@ -19909,8 +19950,8 @@ CERN Open Hardware Licence v1.2.</text>
 </segment>
 <segment>
 <pinref part="CLK-" gate="G$1" pin="TP"/>
-<wire x1="335.28" y1="60.96" x2="332.74" y2="60.96" width="0.1524" layer="91"/>
-<label x="332.74" y="60.96" size="1.778" layer="95" rot="R180" xref="yes"/>
+<wire x1="335.28" y1="55.88" x2="332.74" y2="55.88" width="0.1524" layer="91"/>
+<label x="332.74" y="55.88" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="OUT+" class="0">
@@ -19921,8 +19962,8 @@ CERN Open Hardware Licence v1.2.</text>
 </segment>
 <segment>
 <pinref part="OUT+" gate="G$1" pin="TP"/>
-<wire x1="335.28" y1="104.14" x2="332.74" y2="104.14" width="0.1524" layer="91"/>
-<label x="332.74" y="104.14" size="1.778" layer="95" rot="R180" xref="yes"/>
+<wire x1="335.28" y1="109.22" x2="332.74" y2="109.22" width="0.1524" layer="91"/>
+<label x="332.74" y="109.22" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="OUT-" class="0">
@@ -19933,8 +19974,8 @@ CERN Open Hardware Licence v1.2.</text>
 </segment>
 <segment>
 <pinref part="OUT-" gate="G$1" pin="TP"/>
-<wire x1="335.28" y1="99.06" x2="332.74" y2="99.06" width="0.1524" layer="91"/>
-<label x="332.74" y="99.06" size="1.778" layer="95" rot="R180" xref="yes"/>
+<wire x1="335.28" y1="104.14" x2="332.74" y2="104.14" width="0.1524" layer="91"/>
+<label x="332.74" y="104.14" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="IN+" class="0">
@@ -19945,8 +19986,13 @@ CERN Open Hardware Licence v1.2.</text>
 </segment>
 <segment>
 <pinref part="IN+" gate="G$1" pin="TP"/>
-<wire x1="335.28" y1="91.44" x2="332.74" y2="91.44" width="0.1524" layer="91"/>
-<label x="332.74" y="91.44" size="1.778" layer="95" rot="R180" xref="yes"/>
+<wire x1="335.28" y1="90.17" x2="335.026" y2="90.17" width="0.1524" layer="91"/>
+<label x="332.74" y="90.17" size="1.778" layer="95" rot="R180" xref="yes"/>
+<pinref part="R16" gate="G$1" pin="2"/>
+<junction x="335.026" y="90.17"/>
+<pinref part="R17" gate="G$1" pin="1"/>
+<wire x1="335.026" y1="90.17" x2="332.74" y2="90.17" width="0.1524" layer="91"/>
+<junction x="335.026" y="90.17"/>
 </segment>
 </net>
 <net name="IN-" class="0">
@@ -19957,8 +20003,12 @@ CERN Open Hardware Licence v1.2.</text>
 </segment>
 <segment>
 <pinref part="IN-" gate="G$1" pin="TP"/>
-<wire x1="335.28" y1="86.36" x2="332.74" y2="86.36" width="0.1524" layer="91"/>
-<label x="332.74" y="86.36" size="1.778" layer="95" rot="R180" xref="yes"/>
+<wire x1="335.28" y1="80.01" x2="335.026" y2="80.01" width="0.1524" layer="91"/>
+<label x="332.74" y="80.01" size="1.778" layer="95" rot="R180" xref="yes"/>
+<pinref part="R16" gate="G$1" pin="1"/>
+<wire x1="335.026" y1="80.01" x2="332.74" y2="80.01" width="0.1524" layer="91"/>
+<junction x="335.026" y="80.01"/>
+<pinref part="R18" gate="G$1" pin="1"/>
 </segment>
 </net>
 </nets>
