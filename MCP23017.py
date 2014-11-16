@@ -35,7 +35,7 @@ OUTPUT = 0x00 # shorthand for all pins as output
 
 class gpio:
 	def __init__(self, device_address = DEVICE_ADDRESS):
-		'''Create MCP23017 instance.'''
+		"""Create MCP23017 instance."""
 		if device_address is None:
 			self.device_address = DEVICE_ADDRESS
 		else:
@@ -44,14 +44,14 @@ class gpio:
 		self.i2cbus = smbus.SMBus(1)
 		
 	def write(self, register, data):
-		'''Write `data` to register.'''
+		"""Write `data` to register."""
 		self.i2cbus.write_byte_data(
 			self.device_address,
 			register,
 			data)
 
 	def read(self, register):
-		'''Read from register.'''
+		"""Read from register."""
 		return self.i2cbus.read_byte_data(
 			self.device_address,
 			register)

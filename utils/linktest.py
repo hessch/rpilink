@@ -14,7 +14,7 @@ link = Inmos.Link(
 
 # send data to link
 inb = 0x00
-while (1):
+while True:
 	for i in range(0xff):
 		if link.data_present():
 			inb = link.read()
