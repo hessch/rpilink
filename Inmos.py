@@ -95,7 +95,7 @@ class Interface:
 class Link:
 	"""Create Inmos link instance. 
 
-	An optional link_speed parameter can be supplied, this defaults to
+	An optional linkspeed parameter can be supplied, this defaults to
 	10 Mbit/s. The only supported values for link_speed are 10 and 20 
 	Mbit/s.
 	
@@ -107,7 +107,7 @@ class Link:
 	addresses etc.) are inappropriate.
 	"""
 
-	def __init__(self, interface = None, link_speed = 10):
+	def __init__(self, interface = None, linkspeed = 10):
 		if interface is None:
 			self.interface = Interface()
 		else:
@@ -116,7 +116,7 @@ class Link:
 		# assert Reset, deassert NotCS
 		self.interface.set_signals(Reset = True, NotCS = True)
 
-		self.linkspeed = link_speed
+		self.linkspeed = linkspeed
 		if self.linkspeed == 10: 
 			self.interface.set_signals(LinkSpeed = False)
 		elif self.linkspeed == 20: 

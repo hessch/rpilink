@@ -12,7 +12,7 @@
 import sys, time
 import Inmos
 
-link = Inmos.Link(link_speed = 10)
+link = Inmos.Link(linkspeed=10)
 link.enable_interrupts()
 
 # write identification code to link
