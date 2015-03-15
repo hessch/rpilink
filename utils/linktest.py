@@ -8,9 +8,8 @@ import Inmos
 from time import sleep
 
 # create link instance on default addresses
-link = Inmos.Link(
-	link_speed = 20
-)
+link = Inmos.Link(link_speed = 10)
+link.enable_interrupts()
 
 # send data to link
 inb = 0x00
@@ -24,4 +23,4 @@ while (1):
 			'write: %02x' % i,
 			'read: %02x' % inb,
 		])
-		sleep(0.025)
+#		sleep(0.025)
