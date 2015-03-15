@@ -29,17 +29,17 @@ STROBE_uS = 1   # Number of microseconds to hold strobed signal.
 
 
 class Interface:
-	'''Link interface adapter class, glues Inmos link adapter to
+	"""Link interface adapter class, glues Inmos link adapter to
 	i2c bus and abstracts its signals.
 	With default i2c addresses, one should not need to deal with
 	this class.
-	'''
+	"""
 	def __init__(self, i2c_bus_addr=None):
-		'''Create Inmos Link, optionally specifying i2c addresses
+		"""Create Inmos Link, optionally specifying i2c addresses
 		of the MCP23017.
 
 		Todo: this should allow for overriding the SIGNALS tuple.
-		'''
+		"""
 		if i2c_bus_addr is None:
 			self.i2c_bus_addr = MCP23017.DEVICE_ADDRESS
 		else:
@@ -55,22 +55,22 @@ class Interface:
 		self.gpio.write(MCP23017.OLATB, 0x00)
 		
 	def read_data(self):
-		'''Read data from link adapter.
-		'''
+		"""Read data from link adapter.
+		"""
 		self.gpio.write(MCP23017.IODIRA, MCP23017.INPUT)
 		return self.gpio.read(MCP23017.GPIOA)
 
 	def write_data(self, data):
-		'''Latch a byte of data on the databus.
-		'''
+		"""Latch a byte of data on the databus.
+		"""
 		self.gpio.write(MCP23017.IODIRA, MCP23017.OUTPUT)
 		self.gpio.write(MCP23017.OLATA, data)
 
 	def set_signals(self, *args, **kwargs):
-		'''Update state of one or more signals.
+		"""Update state of one or more signals.
         	e.g.: set_signal(RnotW = True, RS0 = False, RS1 = True)
         	set_signals() Does not return a value.
-		'''
+		"""
 		control_word = self.gpio.read(MCP23017.OLATB)
 		for s in kwargs.keys():
 			if kwargs.get(s):
@@ -80,9 +80,9 @@ class Interface:
 		self.gpio.write(MCP23017.OLATB, control_word)
 
 	def strobe_signal(self, *args, **kwargs):
-		'''Invert a signal's value momentarily.
+		"""Invert a signal's value momentarily.
 			e.g.: strobe_signal(NotCS)
-		'''
+		"""
 		if len(args) > 1:
 			raise AttributeError
 		for t in range(0,2):
@@ -93,9 +93,9 @@ class Interface:
 		sleep(1/(STROBE_uS * 1000000))
 
 class Link:
-	'''Create Inmos link instance. 
+	"""Create Inmos link instance. 
 
-	An optional link_speed parameter can be supplied, this defaults to
+	An optional linkspeed parameter can be supplied, this defaults to
 	10 Mbit/s. The only supported values for link_speed are 10 and 20 
 	Mbit/s.
 	
@@ -105,9 +105,9 @@ class Link:
 	if some of its parameters should be overridden.  This can be useful if
 	multiple link adapters are to be used, or the default parameters (i2c 
 	addresses etc.) are inappropriate.
-	'''
+	"""
 
-	def __init__(self, interface = None, link_speed = 10):
+	def __init__(self, interface = None, linkspeed = 10):
 		if interface is None:
 			self.interface = Interface()
 		else:
@@ -116,7 +116,7 @@ class Link:
 		# assert Reset, deassert NotCS
 		self.interface.set_signals(Reset = True, NotCS = True)
 
-		self.linkspeed = link_speed
+		self.linkspeed = linkspeed
 		if self.linkspeed == 10: 
 			self.interface.set_signals(LinkSpeed = False)
 		elif self.linkspeed == 20: 
@@ -128,9 +128,9 @@ class Link:
 		self.interface.set_signals(Reset = False)
 
 	def data_present(self):
-		'''Read input status register of link adapter for 
+		"""Read input status register of link adapter for 
 		data present, returns True if data is present.
-		'''
+		"""
 		self.interface.set_signals(
                         RnotW = True,
                         RS0 = False,
@@ -147,10 +147,10 @@ class Link:
 		
 
 	def output_ready(self):
-		'''Read output status register of the link adapter
+		"""Read output status register of the link adapter
 		to determine if the link is ready. Returns True for
 		a ready link.
-		'''
+		"""
 		self.interface.set_signals(
                         RnotW = True,
                         RS0 = True,
@@ -166,9 +166,9 @@ class Link:
                 return (data & 0x01 == 0x01)
 
 	def enable_interrupts(self):
-		'''Enable the InputInt and OutputInt lines.
+		"""Enable the InputInt and OutputInt lines.
 		N.B. enable_interrupts() clears the link ISR and OSR registers.
-		'''
+		"""
 		# Enable InputInt (write to ISR)
 		self.interface.set_signals(
 			RnotW = False,
@@ -189,9 +189,9 @@ class Link:
 		self.interface.set_signals(Status = False)
 
 	def disable_interrupts(self):
-		'''Disable the InputInt and OutputInt lines.
+		"""Disable the InputInt and OutputInt lines.
 		N.B. disable_interrupts() clears the link ISR and OSR registers.
-		'''
+		"""
 		# Disable InputInt (write to ISR)
 		self.interface.set_signals(
 			RnotW = False,
@@ -212,8 +212,8 @@ class Link:
 		self.interface.set_signals(Status = False)
 
 	def write(self, data):
-		'''Write a byte of data to the link.
-		'''
+		"""Write a byte of data to the link.
+		"""
 
 		self.interface.set_signals(
 			RnotW = False,
@@ -225,8 +225,8 @@ class Link:
 		self.interface.set_signals(Status = False)
 
 	def read(self):
-		'''Read a byte of data from the link.
-		'''
+		"""Read a byte of data from the link.
+		"""
 
 		self.interface.set_signals(
 			RnotW = True,
@@ -246,11 +246,11 @@ class Link:
 		return data
 
 	def reset(self, *args):
-		'''Strobe LinkReset, this resets a device connected
+		"""Strobe LinkReset, this resets a device connected
 		to the link adapter.
 		When an optional state is given, the LinkReset line
 		will latch to that state.
-		'''
+		"""
 		
 		if len(args) == 0:
 			self.interface.strobe_signal('LinkReset')
