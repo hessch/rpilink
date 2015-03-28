@@ -8,8 +8,8 @@ import Inmos
 from time import sleep
 
 # create link instance on default addresses
-link.enable_interrupts()
 link = Inmos.Link(linkspeed = 20)
+link.enable_interrupts()
 
 # send data to link
 inb = 0x00
